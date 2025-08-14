@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Communicator Suite - Customer Support & Sales Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            background: white;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .tab-button.active {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .tab-button:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .content-section {
+            display: none;
+            animation: slideIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .technique-box {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .interactive-element {
+            background: linear-gradient(135deg, var(--secondary-color), #5dade2);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-element:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .interactive-element::before {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--bg-light);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .checklist li:hover {
+            background: var(--bg-light);
+            padding-left: 1rem;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checklist input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        .timer-widget {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .timer-display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-controls button {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .timer-controls button:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        .practice-scenario {
+            background: #f8f9fa;
+            border: 2px dashed var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .scenario-button {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .scenario-button:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .tips-carousel {
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .tip-author {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .progress-tracker {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin: 2rem 0;
+        }
+
+        .progress-bar {
+            background: var(--bg-light);
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--success-color), #52be80);
+            height: 100%;
+            width: 0%;
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .skill-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: slideIn 0.5s ease-in;
+        }
+
+        .close {
+            color: var(--text-light);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--text-dark);
+        }
+
+        .note-section {
+            background: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .note-section textarea {
+            width: 100%;
+            min-height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            font-family: inherit;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .breathing-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 4s ease-in-out;
+        }
+
+        .breathing-circle.inhale {
+            transform: scale(1.5);
+        }
+
+        .quick-tips {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .quick-tips:hover {
+            transform: scale(1.1);
+            border-radius: 10px;
+            width: auto;
+            padding: 1rem 2rem;
+        }
+
+        .quick-tips:hover::after {
+            content: ' Quick Tips';
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tab-button {
+                margin: 0.25rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .timer-display {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Master Communicator Suite</h1>
+        <p class="subtitle">Your Complete Toolkit for Customer Support & Sales Excellence</p>
+    </header>
+
+    <nav class="nav-tabs">
+        <button class="tab-button active" onclick="showSection('rapport')">🤝 Building Rapport</button>
+        <button class="tab-button" onclick="showSection('charisma')">✨ Charisma Mastery</button>
+        <button class="tab-button" onclick="showSection('connections')">🔗 Deep Connections</button>
+        <button class="tab-button" onclick="showSection('publicspeaking')">🎤 Public Speaking</button>
+        <button class="tab-button" onclick="showSection('practice')">🎯 Practice Hub</button>
+        <button class="tab-button" onclick="showSection('toolkit')">🛠️ Quick Tools</button>
+    </nav>
+
+    <div class="container">
+        <!-- Building Rapport Section -->
+        <section id="rapport" class="content-section active">
+            <div class="card">
+                <h2>The Art of Building Instant Rapport</h2>
+                <p>Based on insights from "How to Win Friends and Influence People" by Dale Carnegie, "The Charisma Myth" by Olivia Fox Cabane, and "Never Eat Alone" by Keith Ferrazzi.</p>
+                
+                <div class="technique-box">
+                    <h3>The SOFTEN Technique</h3>
+                    <ul class="checklist">
+                        <li>
+                            <input type="checkbox" id="smile">
+                            <label for="smile"><strong>S</strong>mile genuinely - Activate your Duchenne markers</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="open">
+                            <label for="open"><strong>O</strong>pen posture - Uncross arms, face directly</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="forward">
+                            <label for="forward"><strong>F</strong>orward lean - Show engagement (10-15 degrees)</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="touch">
+                            <label for="touch"><strong>T</strong>ouch appropriately - Handshake or shoulder tap</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="eye">
+                            <label for="eye"><strong>E</strong>ye contact - 60-70% during conversation</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="nod">
+                            <label for="nod"><strong>N</strong>od to show understanding - Triple nod for emphasis</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="interactive-element" onclick="showModal('mirroringGuide')">
+                    <h4>Master the Mirroring Technique</h4>
+                    <p>Learn subtle ways to build unconscious rapport through synchronized behavior</p>
+                </div>
+
+                <div class="technique-box">
+                    <h3>The Name Game Protocol</h3>
+                    <ol>
+                        <li><strong>Capture:</strong> Focus intently when hearing their name</li>
+                        <li><strong>Clarify:</strong> Ask for spelling or pronunciation if uncertain</li>
+                        <li><strong>Connect:</strong> Associate with someone you know or a mental image</li>
+                        <li><strong>Confirm:</strong> Repeat it immediately in conversation</li>
+                        <li><strong>Continue:</strong> Use it 2-3 times during the interaction</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Active Listening Framework</h2>
+                <div class="grid-container">
+                    <div class="skill-card" onclick="expandSkill('paraphrase')">
+                        <h4>🔄 Paraphrase</h4>
+                        <p>"So what you're saying is..."</p>
+                        <p>Demonstrates understanding and validates their perspective</p>
+                    </div>
+                    <div class="skill-card" onclick="expandSkill('emotion')">
+                        <h4>❤️ Reflect Emotion</h4>
+                        <p>"It sounds like you feel..."</p>
+                        <p>Shows empathy and emotional intelligence</p>
+                    </div>
+                    <div class="skill-card" onclick="expandSkill('summarize')">
+                        <h4>📋 Summarize</h4>
+                        <p>"Let me make sure I understand..."</p>
+                        <p>Confirms mutual understanding</p>
+                    </div>
+                    <div class="skill-card" onclick="expandSkill('question')">
+                        <h4>❓ Ask Open Questions</h4>
+                        <p>"What led you to that conclusion?"</p>
+                        <p>Encourages deeper sharing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charisma Mastery Section -->
+        <section id="charisma" class="content-section">
+            <div class="card">
+                <h2>The Charismatic Trinity</h2>
+                <p>Based on "The Charisma Myth" by Olivia Fox Cabane and research by Amy Cuddy</p>
+                
+                <div class="technique-box">
+                    <h3>🧘 Presence - Be Here Now</h3>
+                    <div class="breathing-circle" id="breathingCircle" onclick="startBreathing()">
+                        BREATHE
+                    </div>
+                    <p>Practice the 4-4-4-4 Box Breathing Technique</p>
+                    <ul>
+                        <li>Inhale for 4 counts</li>
+                        <li>Hold for 4 counts</li>
+                        <li>Exhale for 4 counts</li>
+                        <li>Hold empty for 4 counts</li>
+                    </ul>
+                </div>
+
+                <div class="technique-box">
+                    <h3>💪 Power - Project Capability</h3>
+                    <div class="practice-scenario">
+                        <h4>Power Pose Practice</h4>
+                        <p>Stand in the "Wonder Woman" pose for 2 minutes before important interactions:</p>
+                        <ul>
+                            <li>Feet shoulder-width apart</li>
+                            <li>Hands on hips</li>
+                            <li>Chin slightly elevated</li>
+                            <li>Chest open</li>
+                            <li>Shoulders back</li>
+                        </ul>
+                        <button class="scenario-button" onclick="startPowerPoseTimer()">Start 2-Minute Timer</button>
+                    </div>
+                </div>
+
+                <div class="technique-box">
+                    <h3>🌟 Warmth - Radiate Goodwill</h3>
+                    <div class="note-section">
+                        <h4>Warmth Visualization Exercise</h4>
+                        <p>Before meeting someone, spend 30 seconds imagining:</p>
+                        <ol>
+                            <li>They have just given you wonderful news</li>
+                            <li>You're seeing a beloved friend after years apart</li>
+                            <li>You're holding a warm cup of tea on a cold day</li>
+                        </ol>
+                        <textarea placeholder="Write your personal warmth trigger here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-carousel">
+                <div class="tip-content" id="charisma-tip">
+                    "Charisma is not about being extroverted or naturally gifted. It's a set of learned behaviors."
+                </div>
+                <div class="tip-author">- Olivia Fox Cabane</div>
+            </div>
+        </section>
+
+        <!-- Deep Connections Section -->
+        <section id="connections" class="content-section">
+            <div class="card">
+                <h2>Creating Deep Connections</h2>
+                <p>Synthesized from "How to Be Yourself" by Ellen Hendriksen, "Daring Greatly" by Brené Brown, and "The Like Switch" by Jack Schafer</p>
+                
+                <div class="technique-box">
+                    <h3>The Vulnerability-Trust Loop</h3>
+                    <div class="progress-tracker">
+                        <h4>Connection Depth Levels</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="connectionProgress">0%</div>
+                        </div>
+                        <ul class="checklist">
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('connection')">
+                                <label>Level 1: Share a benign personal preference</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('connection')">
+                                <label>Level 2: Reveal a minor challenge you overcame</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('connection')">
+                                <label>Level 3: Express a genuine compliment with specificity</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('connection')">
+                                <label>Level 4: Share a meaningful goal or aspiration</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('connection')">
+                                <label>Level 5: Acknowledge a shared value or belief</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="interactive-element" onclick="showModal('questionBank')">
+                    <h4>36 Questions for Accelerated Intimacy</h4>
+                    <p>Access the scientifically-proven question framework for building deep connections</p>
+                </div>
+
+                <div class="technique-box">
+                    <h3>The FORD Method for Conversations</h3>
+                    <div class="grid-container">
+                        <div class="skill-card">
+                            <h4>F - Family</h4>
+                            <p>"How's your family doing?"</p>
+                            <p>"Do you have siblings?"</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>O - Occupation</h4>
+                            <p>"What's the best part of your work?"</p>
+                            <p>"How did you get into that field?"</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>R - Recreation</h4>
+                            <p>"What do you do for fun?"</p>
+                            <p>"Any exciting plans for the weekend?"</p>
+                        </div>
+                        <div class="skill-card">
+                            <h4>D - Dreams</h4>
+                            <p>"What's on your bucket list?"</p>
+                            <p>"Where do you see yourself in 5 years?"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Public Speaking Section -->
+        <section id="publicspeaking" class="content-section">
+            <div class="card">
+                <h2>THE OMNIPOTENT CODEX OF VOCAL DOMINION</h2>
+                <p class="subtitle">A Synthesis of Mortal Communication Mastery</p>
+                
+                <div class="technique-box">
+                    <h3>I. THE FOUNDATION: INTERNAL ARCHITECTURE</h3>
+                    
+                    <h4>1.1 The Carnegie Principle of Self-Dissolution</h4>
+                    <ul>
+                        <li>Abandon the illusion of self-importance; your audience's interests supersede your own</li>
+                        <li>Genuine interest in others creates magnetic resonance</li>
+                        <li>Names are sacred incantations—use them as power words</li>
+                    </ul>
+
+                    <h4>1.2 The Charismatic Trinity (Cuddy/Cabane Synthesis)</h4>
+                    <div class="practice-scenario">
+                        <p><strong>Presence:</strong> Ground yourself in the immediate moment through:</p>
+                        <ul>
+                            <li>Box breathing (4-4-4-4 pattern)</li>
+                            <li>Progressive muscle tension release</li>
+                            <li>The "gravity scan" technique</li>
+                        </ul>
+                        <button class="scenario-button" onclick="startPresenceExercise()">Begin Grounding Exercise</button>
+                    </div>
+
+                    <div class="practice-scenario">
+                        <p><strong>Power:</strong> Project capability through:</p>
+                        <ul>
+                            <li>Expansive posturing pre-speech</li>
+                            <li>Slow, deliberate movements</li>
+                            <li>Strategic pause utilization</li>
+                        </ul>
+                    </div>
+
+                    <div class="practice-scenario">
+                        <p><strong>Warmth:</strong> Radiate benevolence via:</p>
+                        <ul>
+                            <li>Genuine smile activation (Duchenne markers)</li>
+                            <li>Open palm gestures</li>
+                            <li>Vocal warmth modulation</li>
+                        </ul>
+                    </div>
+
+                    <h4>1.3 The Gladwell Paradox Resolution</h4>
+                    <ul>
+                        <li>Default to truth while maintaining calibrated skepticism</li>
+                        <li>Read contextual cues over facial expressions</li>
+                        <li>Acknowledge the opacity of human intention in your delivery</li>
+                    </ul>
+                </div>
+
+                <div class="technique-box">
+                    <h3>II. THE PREPARATION MATRIX</h3>
+                    
+                    <h4>2.1 Structural Alchemy</h4>
+                    <div class="interactive-element" onclick="showModal('storySpine')">
+                        <h4>The Story Spine Architecture (Pixar Method)</h4>
+                        <p>Build compelling narratives with proven story structure</p>
+                    </div>
+
+                    <ul>
+                        <li><strong>The Rule of Three:</strong> Human cognition favors triadic structures</li>
+                        <li><strong>The Pyramid Principle (Minto):</strong> Lead with conclusions, support with grouped ideas</li>
+                    </ul>
+
+                    <h4>2.2 The Crucial Conversations Framework Applied</h4>
+                    <div class="note-section">
+                        <h4>STATE Method for Content:</h4>
+                        <ol>
+                            <li><strong>S</strong>hare your facts</li>
+                            <li><strong>T</strong>ell your story</li>
+                            <li><strong>A</strong>sk for others' paths</li>
+                            <li><strong>T</strong>alk tentatively</li>
+                            <li><strong>E</strong>ncourage testing</li>
+                        </ol>
+                        <textarea placeholder="Draft your STATE method content here..."></textarea>
+                    </div>
+
+                    <h4>2.3 Audience Psychogeography</h4>
+                    <ul>
+                        <li>Map the emotional terrain of your listeners</li>
+                        <li>Identify their WIIFM (What's In It For Me)</li>
+                        <li>Design "curiosity gaps" throughout</li>
+                    </ul>
+                </div>
+
+                <div class="technique-box">
+                    <h3>III. THE PERFORMANCE GRIMOIRE</h3>
+                    
+                    <h4>3.1 Vocal Mastery Techniques</h4>
+                    <div class="timer-widget">
+                        <h4>Speech Pace Calculator</h4>
+                        <p>Optimal pace: 150-160 words/minute</p>
+                        <div class="timer-display" id="speechTimer">00:00</div>
+                        <div class="timer-controls">
+                            <button onclick="startSpeechTimer()">Start</button>
+                            <button onclick="pauseSpeechTimer()">Pause</button>
+                            <button onclick="resetSpeechTimer()">Reset</button>
+                        </div>
+                        <p id="wordCount">Words spoken: 0</p>
+                    </div>
+
+                    <div class="practice-scenario">
+                        <h4>The 4P's of Voice:</h4>
+                        <ul>
+                            <li><strong>Pitch:</strong> Vary to avoid monotony</li>
+                            <li><strong>Pace:</strong> 150-160 words/minute baseline</li>
+                            <li><strong>Pause:</strong> Strategic silence as emphasis</li>
+                            <li><strong>Projection:</strong> Speak to the back wall</li>
+                        </ul>
+                    </div>
+
+                    <h4>3.2 Somatic Command Protocols</h4>
+                    <ul>
+                        <li><strong>The Winner's Stance:</strong> 2 minutes pre-speech</li>
+                        <li><strong>Anchoring Technique:</strong> Physical cue for confidence state</li>
+                        <li><strong>Eye Contact Lighthouse Method:</strong> Sweep the room in sections</li>
+                        <li><strong>The Pendulum Principle:</strong> Controlled movement for dynamism</li>
+                    </ul>
+
+                    <h4>3.3 Neurological Hijacking Methods</h4>
+                    <ul>
+                        <li><strong>Mirror Neurons Activation:</strong> Demonstrate the emotion you want to evoke</li>
+                        <li><strong>The Zeigarnik Effect:</strong> Create open loops to maintain attention</li>
+                        <li><strong>Primacy/Recency Optimization:</strong> Load critical content at beginning and end</li>
+                    </ul>
+                </div>
+
+                <div class="technique-box">
+                    <h3>IV. THE CRISIS NAVIGATION SYSTEM</h3>
+                    
+                    <h4>4.1 Anxiety Transmutation</h4>
+                    <div class="interactive-element" onclick="showModal('anxietyReframe')">
+                        <h4>Transform Anxiety into Excitement</h4>
+                        <p>Learn the arousal reappraisal technique used by top performers</p>
+                    </div>
+
+                    <div class="practice-scenario">
+                        <h4>The 5-4-3-2-1 Grounding Technique</h4>
+                        <ul>
+                            <li>5 things you can see</li>
+                            <li>4 things you can touch</li>
+                            <li>3 things you can hear</li>
+                            <li>2 things you can smell</li>
+                            <li>1 thing you can taste</li>
+                        </ul>
+                        <button class="scenario-button" onclick="startGroundingExercise()">Begin Exercise</button>
+                    </div>
+
+                    <h4>4.2 Hostile Audience Alchemy</h4>
+                    <ul>
+                        <li><strong>The Aikido Principle:</strong> Redirect opposition energy</li>
+                        <li><strong>"Steel man" their position</strong> before addressing</li>
+                        <li><strong>The "Yes, and..." bridging technique</strong></li>
+                    </ul>
+
+                    <h4>4.3 Technical Failure Protocols</h4>
+                    <ul>
+                        <li>The "Vulnerability Power Play"</li>
+                        <li>Prepared spontaneity segments</li>
+                        <li>Audience participation pivots</li>
+                    </ul>
+                </div>
+
+                <div class="technique-box">
+                    <h3>V. THE ASCENSION PATH</h3>
+                    
+                    <h4>5.1 Iterative Evolution System</h4>
+                    <div class="progress-tracker">
+                        <h4>Speaker Development Tracker</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="speakerProgress">0%</div>
+                        </div>
+                        <ul class="checklist">
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('speaker')">
+                                <label>Record and analyze first speech</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('speaker')">
+                                <label>Identify one specific improvement area</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('speaker')">
+                                <label>Practice with deliberate focus</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('speaker')">
+                                <label>Get feedback from trusted source</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" onchange="updateProgress('speaker')">
+                                <label>Implement in live setting</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h4>5.2 Advanced Techniques</h4>
+                    <ul>
+                        <li><strong>Hypnotic Language Patterns (Milton Model)</strong></li>
+                        <li><strong>Embedded Commands</strong></li>
+                        <li><strong>Nested Loops for complex narratives</strong></li>
+                        <li><strong>The Rule of Specificity:</strong> Concrete over abstract</li>
+                    </ul>
+
+                    <h4>5.3 The Transcendent Speaker State</h4>
+                    <ul>
+                        <li>Flow state induction protocols</li>
+                        <li>Audience fusion consciousness</li>
+                        <li>The "Invisible Thread" technique for connection</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Hub Section -->
+        <section id="practice" class="content-section">
+            <div class="card">
+                <h2>Practice Scenarios & Role-Play</h2>
+                
+                <div class="grid-container">
+                    <div class="skill-card" onclick="startScenario('angry-customer')">
+                        <h4>😤 Angry Customer</h4>
+                        <p>Practice de-escalation techniques</p>
+                    </div>
+                    <div class="skill-card" onclick="startScenario('technical-issue')">
+                        <h4>🔧 Technical Support</h4>
+                        <p>Explain complex issues simply</p>
+                    </div>
+                    <div class="skill-card" onclick="startScenario('sales-objection')">
+                        <h4>💼 Sales Objections</h4>
+                        <p>Handle common objections smoothly</p>
+                    </div>
+                    <div class="skill-card" onclick="startScenario('first-impression')">
+                        <h4>👋 First Impressions</h4>
+                        <p>Perfect your introduction</p>
+                    </div>
+                </div>
+
+                <div class="timer-widget">
+                    <h4>Practice Timer</h4>
+                    <div class="timer-display" id="practiceTimer">00:00</div>
+                    <div class="timer-controls">
+                        <button onclick="startPracticeTimer()">Start</button>
+                        <button onclick="pausePracticeTimer()">Pause</button>
+                        <button onclick="resetPracticeTimer()">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Daily Practice Challenges</h2>
+                <div class="progress-tracker">
+                    <h4>This Week's Progress</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="weeklyProgress">0%</div>
+                    </div>
+                    <ul class="checklist">
+                        <li>
+                            <input type="checkbox" onchange="updateProgress('weekly')">
+                            <label>Monday: Practice active listening with 3 people</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" onchange="updateProgress('weekly')">
+                            <label>Tuesday: Use the SOFTEN technique in all interactions</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" onchange="updateProgress('weekly')">
+                            <label>Wednesday: Remember and use 5 new names</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" onchange="updateProgress('weekly')">
+                            <label>Thursday: Practice power posing before meetings</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" onchange="updateProgress('weekly')">
+                            <label>Friday: Use the FORD method in conversations</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" onchange="updateProgress('weekly')">
+                            <label>Weekend: Record a 2-minute practice speech</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tools Section -->
+        <section id="toolkit" class="content-section">
+            <div class="card">
+                <h2>Quick Reference Tools</h2>
+                
+                <div class="grid-container">
+                    <div class="skill-card">
+                        <h4>🎯 Conversation Starters</h4>
+                        <ul>
+                            <li>"What's the highlight of your day so far?"</li>
+                            <li>"I noticed your [item/skill], how did you get into that?"</li>
+                            <li>"What brings you here today?"</li>
+                            <li>"Have you always worked in this area?"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>💬 Empathy Phrases</h4>
+                        <ul>
+                            <li>"I can understand how that would be frustrating..."</li>
+                            <li>"That sounds really challenging..."</li>
+                            <li>"I appreciate you sharing that with me..."</li>
+                            <li>"Help me understand your perspective..."</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>🔄 Transition Phrases</h4>
+                        <ul>
+                            <li>"That reminds me of..."</li>
+                            <li>"Speaking of which..."</li>
+                            <li>"On a related note..."</li>
+                            <li>"Building on what you said..."</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>✅ Closing Statements</h4>
+                        <ul>
+                            <li>"Is there anything else I can help you with?"</li>
+                            <li>"I'm confident we can resolve this together"</li>
+                            <li>"Thank you for your patience and understanding"</li>
+                            <li>"I look forward to our next conversation"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Emergency De-escalation Toolkit</h2>
+                <div class="technique-box">
+                    <h3>The LEAP Method</h3>
+                    <ol>
+                        <li><strong>L</strong>isten - Let them vent without interruption</li>
+                        <li><strong>E</strong>mpathize - "I understand this is frustrating"</li>
+                        <li><strong>A</strong>sk - "What would be the ideal outcome for you?"</li>
+                        <li><strong>P</strong>araphrase - "So if I understand correctly..."</li>
+                    </ol>
+                </div>
+                
+                <div class="note-section">
+                    <h4>Personal De-escalation Script</h4>
+                    <textarea placeholder="Write your go-to de-escalation script here..." rows="5"></textarea>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Quick Tips Button -->
+    <div class="quick-tips" onclick="showRandomTip()">
+        💡
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-button').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Modal Functions
+        function showModal(contentType) {
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modalContent');
+            
+            let content = '';
+            
+            switch(contentType) {
+                case 'mirroringGuide':
+                    content = `
+                        <h2>The Mirroring Technique Guide</h2>
+                        <p>Mirroring builds unconscious rapport by subtly matching the other person's behavior.</p>
+                        <h3>What to Mirror:</h3>
+                        <ul>
+                            <li><strong>Body Language:</strong> Match their general posture (open/closed)</li>
+                            <li><strong>Gestures:</strong> Use similar hand movements (after a 2-3 second delay)</li>
+                            <li><strong>Voice:</strong> Match their pace and energy level</li>
+                            <li><strong>Words:</strong> Use their vocabulary and key phrases</li>
+                            <li><strong>Breathing:</strong> Sync your breathing rhythm with theirs</li>
+                        </ul>
+                        <h3>The 30% Rule:</h3>
+                        <p>Only mirror about 30% of their behaviors to avoid seeming artificial. Focus on the most prominent gestures and patterns.</p>
+                        <h3>Practice Exercise:</h3>
+                        <ol>
+                            <li>Watch a video conversation with the sound off</li>
+                            <li>Practice matching one person's gestures</li>
+                            <li>Notice how it feels to sync with their rhythm</li>
+                            <li>Apply subtly in your next interaction</li>
+                        </ol>
+                    `;
+                    break;
+                    
+                case 'questionBank':
+                    content = `
+                        <h2>36 Questions for Building Deep Connections</h2>
+                        <p>Based on Dr. Arthur Aron's research on accelerated intimacy.</p>
+                        <h3>Set I - Introductory (12 questions)</h3>
+                        <ol>
+                            <li>Given the choice of anyone, who would you have as a dinner guest?</li>
+                            <li>Would you like to be famous? In what way?</li>
+                            <li>What would constitute a "perfect" day for you?</li>
+                            <li>If you could change anything about how you were raised, what would it be?</li>
+                        </ol>
+                        <h3>Set II - Deeper (12 questions)</h3>
+                        <ol start="13">
+                            <li>If a crystal ball could tell you the truth about your life, what would you want to know?</li>
+                            <li>What is the greatest accomplishment of your life?</li>
+                            <li>What do you value most in a friendship?</li>
+                            <li>What is your most treasured memory?</li>
+                        </ol>
+                        <h3>Set III - Intimate (12 questions)</h3>
+                        <ol start="25">
+                            <li>Make three true "we" statements about the person you're with</li>
+                            <li>Complete this sentence: "I wish I had someone with whom I could share..."</li>
+                            <li>Share something you consider a positive characteristic of the other person</li>
+                            <li>Share an embarrassing moment in your life</li>
+                        </ol>
+                        <p><em>Use these questions progressively to build deeper connections naturally.</em></p>
+                    `;
+                    break;
+                    
+                case 'storySpine':
+                    content = `
+                        <h2>The Story Spine Architecture (Pixar Method)</h2>
+                        <p>Create compelling narratives using this proven structure:</p>
+                        <div class="practice-scenario">
+                            <h3>Fill in Your Story:</h3>
+                            <ol>
+                                <li><strong>Once upon a time...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="Set the scene..."></li>
+                                
+                                <li><strong>Every day...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="Describe the routine..."></li>
+                                
+                                <li><strong>Until one day...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="The inciting incident..."></li>
+                                
+                                <li><strong>Because of that...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="First consequence..."></li>
+                                
+                                <li><strong>Because of that...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="Second consequence..."></li>
+                                
+                                <li><strong>Because of that...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="Third consequence..."></li>
+                                
+                                <li><strong>Until finally...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="The climax/resolution..."></li>
+                                
+                                <li><strong>Ever since then...</strong><br>
+                                <input type="text" style="width: 100%; margin: 10px 0;" placeholder="The new normal..."></li>
+                            </ol>
+                        </div>
+                        <h3>Example - Customer Success Story:</h3>
+                        <p><em>Once upon a time, our client struggled with customer retention. Every day, they lost 10% of their customers to competitors. Until one day, they implemented our solution. Because of that, customer satisfaction increased 40%. Because of that, retention improved dramatically. Because of that, revenue grew 25% year-over-year. Until finally, they became the market leader. Ever since then, they've been our biggest advocate.</em></p>
+                    `;
+                    break;
+                    
+                case 'anxietyReframe':
+                    content = `
+                        <h2>Transform Anxiety into Excitement</h2>
+                        <p>Based on research by Alison Wood Brooks at Harvard Business School</p>
+                        <h3>The Science:</h3>
+                        <p>Anxiety and excitement are both high-arousal states. Your body can't tell the difference - only your mind labels the feeling. By reframing anxiety as excitement, you maintain the energy while changing the emotional valence.</p>
+                        <h3>The Technique:</h3>
+                        <ol>
+                            <li><strong>Acknowledge the arousal:</strong> "I notice my heart is beating faster"</li>
+                            <li><strong>Reframe out loud:</strong> Say "I am excited!" three times</li>
+                            <li><strong>Focus on opportunity:</strong> "This energy will help me perform better"</li>
+                            <li><strong>Channel the energy:</strong> Use dynamic gestures and vocal variety</li>
+                        </ol>
+                        <h3>Practice Script:</h3>
+                        <div class="note-section">
+                            <p>"This racing heart isn't fear - it's my body preparing me for peak performance. I'm excited to share my knowledge. This energy will make me more dynamic and engaging. I'm excited! I'm excited! I'm excited!"</p>
+                        </div>
+                        <h3>Emergency Protocol:</h3>
+                        <ul>
+                            <li>Take one deep breath (not several - maintains arousal)</li>
+                            <li>Smile genuinely (triggers positive emotions)</li>
+                            <li>Think of one person in the audience you're helping</li>
+                            <li>Start with high energy: "I'm thrilled to be here!"</li>
+                        </ul>
+                    `;
+                    break;
+            }
+            
+            modalContent.innerHTML = content;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Progress Tracking
+        function updateProgress(type) {
+            let progressBar;
+            let checkboxes;
+            
+            switch(type) {
+                case 'connection':
+                    progressBar = document.getElementById('connectionProgress');
+                    checkboxes = progressBar.closest('.progress-tracker').querySelectorAll('input[type="checkbox"]');
+                    break;
+                case 'speaker':
+                    progressBar = document.getElementById('speakerProgress');
+                    checkboxes = progressBar.closest('.progress-tracker').querySelectorAll('input[type="checkbox"]');
+                    break;
+                case 'weekly':
+                    progressBar = document.getElementById('weeklyProgress');
+                    checkboxes = progressBar.closest('.progress-tracker').querySelectorAll('input[type="checkbox"]');
+                    break;
+            }
+            
+            const total = checkboxes.length;
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const percentage = (checked / total) * 100;
+            
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = Math.round(percentage) + '%';
+        }
+
+        // Timer Functions
+        let practiceTimerInterval;
+        let practiceSeconds = 0;
+        let speechTimerInterval;
+        let speechSeconds = 0;
+
+        function startPracticeTimer() {
+            clearInterval(practiceTimerInterval);
+            practiceTimerInterval = setInterval(() => {
+                practiceSeconds++;
+                updateTimerDisplay('practiceTimer', practiceSeconds);
+            }, 1000);
+        }
+
+        function pausePracticeTimer() {
+            clearInterval(practiceTimerInterval);
+        }
+
+        function resetPracticeTimer() {
+            clearInterval(practiceTimerInterval);
+            practiceSeconds = 0;
+            updateTimerDisplay('practiceTimer', 0);
+        }
+
+        function startSpeechTimer() {
+            clearInterval(speechTimerInterval);
+            speechTimerInterval = setInterval(() => {
+                speechSeconds++;
+                updateTimerDisplay('speechTimer', speechSeconds);
+                updateWordCount(speechSeconds);
+            }, 1000);
+        }
+
+        function pauseSpeechTimer() {
+            clearInterval(speechTimerInterval);
+        }
+
+        function resetSpeechTimer() {
+            clearInterval(speechTimerInterval);
+            speechSeconds = 0;
+            updateTimerDisplay('speechTimer', 0);
+            document.getElementById('wordCount').textContent = 'Words spoken: 0';
+        }
+
+        function updateTimerDisplay(timerId, seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            document.getElementById(timerId).textContent = 
+                `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateWordCount(seconds) {
+            const wordsPerMinute = 155; // Average speaking pace
+            const estimatedWords = Math.round((seconds / 60) * wordsPerMinute);
+            document.getElementById('wordCount').textContent = `Words spoken: ${estimatedWords}`;
+        }
+
+        // Breathing Exercise
+        function startBreathing() {
+            const circle = document.getElementById('breathingCircle');
+            circle.classList.add('inhale');
+            
+            setTimeout(() => {
+                circle.textContent = 'HOLD';
+            }, 4000);
+            
+            setTimeout(() => {
+                circle.classList.remove('inhale');
+                circle.textContent = 'EXHALE';
+            }, 8000);
+            
+            setTimeout(() => {
+                circle.textContent = 'HOLD';
+            }, 12000);
+            
+            setTimeout(() => {
+                circle.textContent = 'BREATHE';
+            }, 16000);
+        }
+
+        // Power Pose Timer
+        function startPowerPoseTimer() {
+            let seconds = 120; // 2 minutes
+            const interval = setInterval(() => {
+                seconds--;
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    alert('Power pose complete! You\'re ready to project confidence!');
+                }
+            }, 1000);
+            alert('Timer started! Hold your power pose for 2 minutes.');
+        }
+
+        // Scenario Practice
+        function startScenario(type) {
+            let scenario = '';
+            
+            switch(type) {
+                case 'angry-customer':
+                    scenario = `
+                        <h2>Angry Customer Scenario</h2>
+                        <p><strong>Situation:</strong> A customer calls, furious about a delayed shipment that ruined their important event.</p>
+                        <h3>Your objectives:</h3>
+                        <ul>
+                            <li>Acknowledge their frustration</li>
+                            <li>Take responsibility without blame</li>
+                            <li>Offer a concrete solution</li>
+                            <li>Rebuild trust</li>
+                        </ul>
+                        <h3>Practice Response Framework:</h3>
+                        <ol>
+                            <li><strong>Empathy:</strong> "I completely understand how frustrating this must be..."</li>
+                            <li><strong>Apology:</strong> "I sincerely apologize for the impact this has had..."</li>
+                            <li><strong>Action:</strong> "Here's what I can do right now..."</li>
+                            <li><strong>Assurance:</strong> "I'll personally ensure this is resolved..."</li>
+                        </ol>
+                    `;
+                    break;
+                case 'technical-issue':
+                    scenario = `
+                        <h2>Technical Support Scenario</h2>
+                        <p><strong>Situation:</strong> A non-technical customer can't access their account and is getting increasingly frustrated.</p>
+                        <h3>Your objectives:</h3>
+                        <ul>
+                            <li>Simplify technical language</li>
+                            <li>Guide step-by-step</li>
+                            <li>Maintain patience</li>
+                            <li>Ensure understanding</li>
+                        </ul>
+                        <h3>The ELI5 (Explain Like I'm 5) Approach:</h3>
+                        <ol>
+                            <li>Use analogies: "Think of your password like a key..."</li>
+                            <li>Break down steps: "First, let's do just one thing..."</li>
+                            <li>Confirm understanding: "Does that make sense so far?"</li>
+                            <li>Celebrate progress: "Great! You're doing perfectly..."</li>
+                        </ol>
+                    `;
+                    break;
+                case 'sales-objection':
+                    scenario = `
+                        <h2>Sales Objection Scenario</h2>
+                        <p><strong>Situation:</strong> "Your product is too expensive compared to competitors."</p>
+                        <h3>The Feel-Felt-Found Method:</h3>
+                        <ol>
+                            <li><strong>Feel:</strong> "I understand how you feel about the price..."</li>
+                            <li><strong>Felt:</strong> "Other clients felt the same way initially..."</li>
+                            <li><strong>Found:</strong> "What they found was the value far exceeded the cost because..."</li>
+                        </ol>
+                        <h3>Value Stacking Response:</h3>
+                        <ul>
+                            <li>Acknowledge the concern genuinely</li>
+                            <li>Shift focus from price to ROI</li>
+                            <li>Share specific success metrics</li>
+                            <li>Calculate cost of NOT buying</li>
+                        </ul>
+                    `;
+                    break;
+                case 'first-impression':
+                    scenario = `
+                        <h2>First Impression Scenario</h2>
+                        <p><strong>Situation:</strong> You have 30 seconds to introduce yourself at a networking event.</p>
+                        <h3>The SOAR Introduction:</h3>
+                        <ol>
+                            <li><strong>S</strong>ituation: Your current role/context</li>
+                            <li><strong>O</strong>bstacles: Challenges you help solve</li>
+                            <li><strong>A</strong>ctions: What you do uniquely well</li>
+                            <li><strong>R</strong>esults: The outcomes you create</li>
+                        </ol>
+                        <h3>Example:</h3>
+                        <p>"I'm Sarah, a customer success manager at TechCorp. I noticed many clients struggle with onboarding, so I developed a system that reduces setup time by 70%. Last month alone, we helped 50 companies go live in under a week. I'm always curious about how others tackle similar challenges - what's your experience been?"</p>
+                    `;
+                    break;
+            }
+            
+            showModal('scenario');
+            document.getElementById('modalContent').innerHTML = scenario;
+        }
+
+        // Random Tips
+        const tips = [
+            "Use someone's name within 10 seconds of learning it to improve retention by 70%",
+            "Mirror the last 3 words someone says to encourage them to continue sharing",
+            "Pause for 2 seconds after making a key point to let it sink in",
+            "Lower your voice tone at the end of sentences to project authority",
+            "Stand with feet shoulder-width apart to instantly feel more confident",
+            "Make eye contact for 60-70% of conversation for optimal connection",
+            "Use open palm gestures to appear more trustworthy",
+            "Smile before answering the phone - it changes your voice tone",
+            "Ask 'What else?' to uncover hidden concerns",
+            "Use the word 'because' - it increases compliance by 30%"
+        ];
+
+        function showRandomTip() {
+            const randomTip = tips[Math.floor(Math.random() * tips.length)];
+            alert('💡 Quick Tip: ' + randomTip);
+        }
+
+        // Charisma tip rotation
+        const charismaTips = [
+            {
+                quote: "Charisma is not about being extroverted or naturally gifted. It's a set of learned behaviors.",
+                author: "Olivia Fox Cabane"
+            },
+            {
+                quote: "The key to charisma is not trying to impress others, but being impressed by them.",
+                author: "Dale Carnegie"
+            },
+            {
+                quote: "Presence is far more intricate and rewarding than physical attractiveness.",
+                author: "Amy Cuddy"
+            },
+            {
+                quote: "You can make more friends in two months by being interested in others than in two years trying to get others interested in you.",
+                author: "Dale Carnegie"
+            }
+        ];
+
+        let currentTipIndex = 0;
+        
+        function rotateCharismaTips() {
+            const tipElement = document.getElementById('charisma-tip');
+            const authorElement = tipElement?.nextElementSibling;
+            
+            if (tipElement && authorElement) {
+                currentTipIndex = (currentTipIndex + 1) % charismaTips.length;
+                tipElement.textContent = `"${charismaTips[currentTipIndex].quote}"`;
+                authorElement.textContent = `- ${charismaTips[currentTipIndex].author}`;
+            }
+        }
+
+        // Rotate tips every 10 seconds
+        setInterval(rotateCharismaTips, 10000);
+
+        // Initialize
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal')) {
+                closeModal();
+            }
+        }
+
+        // Grounding Exercise
+        function startGroundingExercise() {
+            alert('Starting 5-4-3-2-1 Grounding Exercise:\n\n' +
+                  '1. Name 5 things you can see\n' +
+                  '2. Name 4 things you can touch\n' +
+                  '3. Name 3 things you can hear\n' +
+                  '4. Name 2 things you can smell\n' +
+                  '5. Name 1 thing you can taste\n\n' +
+                  'Take your time with each sense.');
+        }
+
+        // Presence Exercise
+        function startPresenceExercise() {
+            alert('Starting Presence Exercise:\n\n' +
+                  '1. Close your eyes\n' +
+                  '2. Take 3 deep breaths\n' +
+                  '3. Scan your body from head to toe\n' +
+                  '4. Notice any tension and release it\n' +
+                  '5. Open your eyes and maintain this awareness');
+        }
+
+        // Expand skill details
+        function expandSkill(skillType) {
+            // This could be expanded to show more detailed information
+            console.log('Expanding skill:', skillType);
+        }
+    </script>
+</body>
+</html>
